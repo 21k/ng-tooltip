@@ -1,9 +1,10 @@
 # ng-tooltip
-angulart  directive for tile hint | desscrption |tooltip
+angulart  directive for tile hint | desscrption | tooltip
 
 # useage
 > *  ```<script src="ng-tooltips.js"></script>```
 > *  ```<div toolips="options"></div>```
+> *  ```var app = angular.module('app', ['ngToolTip']);```
    
  
 # tooltips options
