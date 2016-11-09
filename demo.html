@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-tooltips</title>
+    <script src="http://cdn.bootcss.com/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/angular.js/1.3.9/angular.min.js"></script>
+    <script src="ng-tooltips.js"></script>
+    <style>
+        ul {
+            width: 500px;
+            background: #e2e2e2;
+            list-style: none;
+            padding: 20px;
+            margin:10px  auto;
+        }
+
+        li {
+            line-height: 40px;
+            cursor: pointer;
+            border: 1px solid #534a4a;
+            margin: 5px;
+            padding: 10px;
+        }
+
+        li:hover {
+            background: #00B83F;
+        }
+        pre{
+            line-height: 20px;
+            background: #f7f5cc;
+            padding: 10px;
+            color: #9a2a00;
+        }
+
+            </style>
+</head>
+<body ng-controller="indexCtrl">
+<ul>
+    <li ng-repeat="item in data" tooltips="item">{{item.title}}
+        <pre>{{item|json}}</pre>
+    </li>
+</ul>
+<script>
+    var app = angular.module('app', ['ngToolTip']);
+    app.controller("indexCtrl", ["$scope", function ($scope) {
+        $scope.data = [{
+
+            place: "right",
+            title: "click show/hide",
+            close: false
+
+        }, {
+            title: "mouseenter show / mouseleave hide",
+            place: "top"
+        }, {
+            title: "mouseenter show / mouseleave hide with timeout",
+            place: "top",
+            timeout: 1000
+        }, {
+            title: "self style",
+            place: "bottom",
+            style: {background: "#f00", color: "#ff0"}
+
+        }, {
+            title: "without safe mode<embed src='http://tmxk.org'>",
+            place: "right",
+            html: true
+        }
+        ]
+
+    }])
+</script>
+</body>
+</html>
